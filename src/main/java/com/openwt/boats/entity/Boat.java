@@ -14,6 +14,7 @@ public class Boat {
     private String description;
     private Float  weight;
     private Timestamp createDate;
+    private String owner;
 
     public String getOwner() {
         return owner;
@@ -23,7 +24,7 @@ public class Boat {
         this.owner = owner;
     }
 
-    private String owner;
+
 
 
     public Boat(){}

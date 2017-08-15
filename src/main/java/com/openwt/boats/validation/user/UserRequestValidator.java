@@ -23,6 +23,6 @@ public class UserRequestValidator implements UserRequestValidatorWrapper {
 
     @Override
     public void validate(UserSignUpRequestDto userSignUpRequestDto) throws ValidationException {
-
+        userSignUpValidator.validate(userSignUpRequestDto);
     }
 }

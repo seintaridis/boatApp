@@ -11,6 +11,8 @@ import com.openwt.boats.entity.User;
 import com.openwt.boats.error.UserError;
 import com.openwt.boats.exception.NotAuthorizedException;
 import com.openwt.boats.session.SessionInfo;
+import com.openwt.boats.validation.boat.BoatRequestValidator;
+import com.openwt.boats.validation.user.UserRequestValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -35,6 +37,9 @@ public class BoatControllerImpl implements BoatController{
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private BoatRequestValidator boatRequestValidator;
+
     public BoatRegisterResponseDto registerBoat(@RequestHeader UUID authToken,@RequestBody BoatRegisterRequestDto boatRegisterRequestDto) throws Exception {
 
         Boat boatEntity= new Boat(boatRegisterRequestDto.getName(),
@@ -56,6 +61,8 @@ public class BoatControllerImpl implements BoatController{
         //Validate Authorization
         if (!user.getId().equals(sessionInfo.getUserId()))
             throw new NotAuthorizedException(UserError.UNAUTHORIZED);
+
+        boatRequestValidator.validate(boatRegisterRequestDto);
 
         Boat boatEntity;
         if (boatRegisterRequestDto.getId()==null)
