@@ -2,11 +2,11 @@ package com.openwt.boats.dto.user;
 
 import org.springframework.http.HttpStatus;
 
-public class UserSignUpResponseDto {
+public class GeneralResponseDto {
     private HttpStatus status;
     private String message;
 
-    public UserSignUpResponseDto(HttpStatus status,String message){
+    public GeneralResponseDto(HttpStatus status, String message){
         this.status=status;
         this.message=message;
     }

@@ -26,13 +26,14 @@ public class Boat {
     private String owner;
 
 
-    public Boat(){}  //TODO fix?
+    public Boat(){}
 
-    public Boat(String name, String description, Float weight, Timestamp createDate) {
+    public Boat(String name, String description, Float weight, Timestamp createDate,String owner) {
         this.name = name;
         this.description = description;
         this.weight = weight;
         this.createDate = createDate;
+        this.owner=owner;
     }
 
     public Long getId() {

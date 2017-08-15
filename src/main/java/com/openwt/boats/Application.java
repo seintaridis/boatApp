@@ -26,12 +26,10 @@ public class Application {
 		return args -> {
             repository.save(new User("Dimitrios","Seintaridis","seinta","123"));
 
-            boatRepository.save(new Boat("Poseidon","Very big boat",2999f,new Timestamp(System.currentTimeMillis())));
+            boatRepository.save(new Boat("Poseidon","Very big boat",2999f,new Timestamp(System.currentTimeMillis()),"Seintaridis"));
 
-			boatRepository.save(new Boat("Zeus","like thunder",300.f,new Timestamp(System.currentTimeMillis())));
+			boatRepository.save(new Boat("Zeus","like thunder",300.f,new Timestamp(System.currentTimeMillis()),"Seintaridis"));
             System.out.println("test");
-
-
 
 		};
 	}
