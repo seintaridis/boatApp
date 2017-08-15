@@ -32,6 +32,13 @@ dependencies {
 	compile("com.h2database:h2")
 	compile("org.springframework.boot:spring-boot-starter-jetty")
 	compile('joda-time:joda-time:2.1')
+	// https://mvnrepository.com/artifact/org.springframework/spring-test
+	testCompile group: 'org.springframework', name: 'spring-test', version: '4.3.9.RELEASE'
+
+
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+	testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.5.2.RELEASE'
+
 	// end::jetty[]
 	// tag::actuator[]
 	compile("org.springframework.boot:spring-boot-starter-actuator")

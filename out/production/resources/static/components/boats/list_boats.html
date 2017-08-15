@@ -36,7 +36,7 @@
     <form  ng-submit="updateBoat()" >
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" ng-model="boat.name">
+            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" ng-model="boat.name" required>
         </div>
 
         <div class="form-group">
@@ -47,12 +47,12 @@
 
         <div class="form-group">
             <label for="weight">Weight:</label>
-            <input type="text" class="form-control" id="weight" placeholder="Enter Weight" name="weight" ng-model="boat.weight">
+            <input type="number" class="form-control" id="weight" placeholder="Enter Weight" name="weight" ng-model="boat.weight" required>
         </div>
 
         <div class="form-group">
             <label for="owner">Owner:</label>
-            <input type="text" class="form-control" id="owner" placeholder="Enter Owner" name="owner" ng-model="boat.owner">
+            <input type="text" class="form-control" id="owner" placeholder="Enter Owner" name="owner" ng-model="boat.owner" required>
         </div>
 
         <button type="submit" class="btn btn-default">Submit</button>
