@@ -27,14 +27,28 @@ router.controller('navigationController',function ($scope,$state, $cookies,userS
     $scope.signout = function(){
         $cookies.remove('id');
         $cookies.remove('authToken');
+        $cookies.remove('firstName')
         $cookies.put('signedIn', 'no');
         $scope.signedIn = false;
         $scope.user = {};
         $state.go('home')
     };
 
+    $scope.homepage = function () {
+        $state.go('home')
+
+    }
+
+    $scope.goBoats = function () {
+        $state.go('listBoats')
+    }
+
     $scope.login=function () {
         $state.go('login')
+    };
+
+    $scope.signup=function () {
+        $state.go('signup')
     };
 
 

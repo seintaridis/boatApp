@@ -1,4 +1,4 @@
-router.controller('listBoatsController',function ($scope, $http, $state,$cookies,boatService,userService) {
+router.controller('listBoatsController',function ($scope, $http, $state,$cookies,$timeout,boatService,userService) {
 
     console.log("list of boats");
 
@@ -53,7 +53,7 @@ router.controller('listBoatsController',function ($scope, $http, $state,$cookies
 
 
     $scope.deleteBoat = function (id) {
-        boatService.deleteBoat(id)
+        boatService.deleteBoat(id,$cookies.get('id'),$cookies.get('authToken'))
             .then(function success(response) {
                     $scope.message = 'User deleted!';
                     $scope.User = null;
@@ -81,13 +81,17 @@ router.controller('listBoatsController',function ($scope, $http, $state,$cookies
     console.log("update boat");
     $scope.updateBoat = function () {
         console.log($scope.boat);
-        boatService.updateBoat($scope.boat)
+        $scope.boat.userId=$cookies.get('id');
+        boatService.updateBoat($scope.boat,$cookies.get('authToken'))
             .then(function (response){
                     console.log("register boat");
                 boatService.getBoats({})
                     .then(function (response){
                             console.log("MESA STO RESPONSE");
                             $scope.boats=response.data;
+                            $scope.success=true;
+                            $timeout(function(){$scope.success = false}, 3000);
+
 
 
                         }, function (response){

@@ -9,6 +9,7 @@ router.controller('loginController',function ($scope, $http,$cookies,$state,user
                     $cookies.put('signedIn', 'yes');
                     $cookies.put('authToken', response.data.authToken);
                     $cookies.put('firstName', response.data.firstName);
+
                     console.log(response.data.firstName);
 
                     $state.go('listBoats')

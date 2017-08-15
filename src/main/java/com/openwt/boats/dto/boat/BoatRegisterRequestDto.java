@@ -8,6 +8,15 @@ public class BoatRegisterRequestDto {
     private String description;
     private Float  weight;
     private Timestamp createDate;
+    private Long userId;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     public String getOwner() {
         return owner;

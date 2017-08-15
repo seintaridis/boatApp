@@ -27,13 +27,16 @@
     </table>
 </div>
 
+<div class="alert alert-success" ng-show="success">
+    <strong>Changes were saved successfully!</strong>
+</div>
 
-
+<div class="row">
 <div    class="col-sm-8 col-sm-offset-2" style="background-color:#808080"   class="container" >
     <form  ng-submit="updateBoat()" >
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" ng-model="boat.name">
+            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" ng-model="boat.name" required>
         </div>
 
         <div class="form-group">
@@ -44,20 +47,39 @@
 
         <div class="form-group">
             <label for="weight">Weight:</label>
-            <input type="text" class="form-control" id="weight" placeholder="Enter Weight" name="weight" ng-model="boat.weight">
+            <input type="text" class="form-control" id="weight" placeholder="Enter Weight" name="weight" ng-model="boat.weight" required>
         </div>
 
         <div class="form-group">
             <label for="owner">Owner:</label>
-            <input type="text" class="form-control" id="owner" placeholder="Enter Owner" name="owner" ng-model="boat.owner">
+            <input type="text" class="form-control" id="owner" placeholder="Enter Owner" name="owner" ng-model="boat.owner" required>
         </div>
 
         <button type="submit" class="btn btn-default">Submit</button>
+
     </form>
 </div>
 
 
-<!-- Footer -->
+
+
+
+</div>
+
+
+
+<div class="row">
+
+<style>
+    .bg-4 {
+        background-color: #2f2f2f;
+        color: #ffffff;
+    }
+</style>
+
 <footer class="container-fluid bg-4 text-center">
-    <p>Bootstrap Theme Made By <a href="https://www.w3schools.com">www.w3schools.com</a></p>
+    <p>Made By Dimitrios Seintaridis <a href="https://github.com/seintaridis/boatApp">Github</a></p>
 </footer>
+
+
+</div>

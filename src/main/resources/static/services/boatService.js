@@ -19,11 +19,9 @@ router.factory('boatService',function ($http) {
 
     };
 
-    boatService.deleteBoat = function deleteBoat(id) {
-        return $http({
-            method : 'DELETE',
-            url : 'api/delete_boat/' + id
-        })
+    boatService.deleteBoat = function deleteBoat(id,userId,authToken) {
+        return $http.delete('api/delete_boat/' + id + '/'+ userId,{headers: {'authToken': authToken}})
+
 
     };
 
@@ -35,8 +33,8 @@ router.factory('boatService',function ($http) {
         });
     };
 
-    boatService.updateBoat = function (boat) {
-        return $http.post('api/update_boat',boat)
+    boatService.updateBoat = function (boat,authToken) {
+        return $http.post('api/update_boat',boat,{headers: {'authToken': authToken}})
             .then(function (response) {
                 console.log(response)
                 return response
