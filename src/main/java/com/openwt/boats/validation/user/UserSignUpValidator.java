@@ -4,11 +4,13 @@ import com.openwt.boats.dto.user.UserSignUpRequestDto;
 import com.openwt.boats.error.UserError;
 import com.openwt.boats.exception.ValidationException;
 import com.openwt.boats.validation.Validator;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+@Component
 public class UserSignUpValidator implements Validator<UserSignUpRequestDto>{
 
     @Override

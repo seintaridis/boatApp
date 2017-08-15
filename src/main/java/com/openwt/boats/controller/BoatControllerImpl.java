@@ -40,7 +40,8 @@ public class BoatControllerImpl implements BoatController{
         Boat boatEntity= new Boat(boatRegisterRequestDto.getName(),
                 boatRegisterRequestDto.getDescription(),
                 boatRegisterRequestDto.getWeight(),
-                boatRegisterRequestDto.getCreateDate());
+                boatRegisterRequestDto.getCreateDate(),
+                boatRegisterRequestDto.getOwner());
         repository.save(boatEntity);
         BoatRegisterResponseDto response = new BoatRegisterResponseDto(HttpStatus.OK,"Boat is registered succesfully");
         return  response;
@@ -104,6 +105,7 @@ public class BoatControllerImpl implements BoatController{
       boatDto.setDescription(boatEntity.getDescription());
       boatDto.setWeight(boatEntity.getWeight());
       boatDto.setId(boatEntity.getId());
+      boatDto.setOwner(boatEntity.getOwner());
       return boatDto;
     }
 
