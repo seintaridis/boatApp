@@ -1,5 +1,5 @@
-# DoatApp
-An app with SpringBoot,AngularJS and Bootstrap 
+# ΒoatApp
+An app with SpringBoot,AngularJS and Bootstrap
 
 
 # Deployment
