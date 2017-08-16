@@ -29,7 +29,7 @@ public class Application {
             boatRepository.save(new Boat("Poseidon","Very big boat",2999f,new Timestamp(System.currentTimeMillis()),"Seintaridis"));
 
 			boatRepository.save(new Boat("Zeus","like thunder",300.f,new Timestamp(System.currentTimeMillis()),"Seintaridis"));
-            System.out.println("test");
+
 
 		};
 	}
