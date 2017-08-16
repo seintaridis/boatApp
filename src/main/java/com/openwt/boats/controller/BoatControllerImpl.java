@@ -12,15 +12,12 @@ import com.openwt.boats.error.UserError;
 import com.openwt.boats.exception.NotAuthorizedException;
 import com.openwt.boats.session.SessionInfo;
 import com.openwt.boats.validation.boat.BoatRequestValidator;
-import com.openwt.boats.validation.user.UserRequestValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
-
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
