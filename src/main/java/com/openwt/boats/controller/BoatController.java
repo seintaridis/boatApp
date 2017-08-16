@@ -13,14 +13,12 @@ import java.util.UUID;
 @RestController
 @RequestMapping(path = "/api")
 public interface BoatController {
-    @RequestMapping(path = "/register_boat", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    BoatRegisterResponseDto registerBoat(@RequestHeader UUID authToken,BoatRegisterRequestDto boatRegisterRequestDto) throws Exception;
 
     @RequestMapping(path = "/update_boat", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     BoatRegisterResponseDto updateBoat(@RequestHeader UUID authToken,BoatRegisterRequestDto boatRegisterRequestDto) throws Exception;
 
-    @RequestMapping(path = "/get_boats", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    ArrayList<BoatResponseDto> getBoats(BoatRegisterRequestDto boatRegisterRequestDto) throws Exception;
+    @RequestMapping(path = "/get_boats/{userId}", method = RequestMethod.GET,  produces = "application/json")
+    ArrayList<BoatResponseDto> getBoats(@RequestHeader UUID authToken,@PathVariable Long userId) throws Exception;
 
 
     @RequestMapping(path = "/get_boat/{boatId}", method = RequestMethod.GET, produces = "application/json")

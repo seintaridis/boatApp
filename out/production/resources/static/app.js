@@ -19,11 +19,6 @@ router.config(function ($stateProvider) {
         controller:'signupController'
          })
 
-        .state('registerBoat',{
-        url:'/registerBoat' ,
-        templateUrl: '/components/boats/register_boat.html',
-        controller:'registerBoatController'
-    })
 
         .state('listBoats',{
             url:'/listBoats' ,

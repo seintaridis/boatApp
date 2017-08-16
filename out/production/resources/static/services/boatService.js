@@ -1,17 +1,10 @@
 router.factory('boatService',function ($http) {
     var boatService = {}
 
-    boatService.register = function (boat) {
-        return $http.post('api/register_boat',boat)
-            .then(function (response) {
-                console.log(response)
-                return response
-            })
 
-    };
 
-    boatService.getBoats = function (boat) {
-        return $http.post('api/get_boats',boat)
+    boatService.getBoats = function (userId,authToken) {
+        return $http.get('api/get_boats/'+userId,{headers: {'authToken': authToken}})
             .then(function (response) {
                 console.log(response)
                 return response

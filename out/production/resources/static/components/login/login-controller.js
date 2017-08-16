@@ -15,7 +15,11 @@ router.controller('loginController',function ($scope, $http,$cookies,$state,user
                     $state.go('listBoats')
 
 
-            }, function (response){}
+            }, function (response){
+
+                $scope.wrongPass=true;
+                $timeout(function(){$scope.wrongPass = false}, 1000);
+                }
 
             )
     }

@@ -40,17 +40,6 @@ public class BoatControllerImpl implements BoatController{
     @Autowired
     private BoatRequestValidator boatRequestValidator;
 
-    public BoatRegisterResponseDto registerBoat(@RequestHeader UUID authToken,@RequestBody BoatRegisterRequestDto boatRegisterRequestDto) throws Exception {
-
-        Boat boatEntity= new Boat(boatRegisterRequestDto.getName(),
-                boatRegisterRequestDto.getDescription(),
-                boatRegisterRequestDto.getWeight(),
-                boatRegisterRequestDto.getCreateDate(),
-                boatRegisterRequestDto.getOwner());
-        repository.save(boatEntity);
-        BoatRegisterResponseDto response = new BoatRegisterResponseDto(HttpStatus.OK,"Boat is registered succesfully");
-        return  response;
-    }
 
     @Override
     public BoatRegisterResponseDto updateBoat(@RequestHeader UUID authToken,@RequestBody BoatRegisterRequestDto boatRegisterRequestDto) throws Exception {
@@ -87,8 +76,16 @@ public class BoatControllerImpl implements BoatController{
     }
 
     @Override
-    public ArrayList<BoatResponseDto> getBoats(@RequestBody BoatRegisterRequestDto boatRegisterRequestDto) throws Exception {
-            ArrayList<BoatResponseDto> boatResponseDtos= new ArrayList<>();
+    public ArrayList<BoatResponseDto> getBoats(@RequestHeader UUID authToken,@PathVariable Long userId) throws Exception {
+
+        //Get Active Session
+        SessionInfo sessionInfo = authenticator.checkUpdateSession(authToken);
+        User user = userRepository.findUsersById(userId);
+        //Validate Authorization
+        if (!user.getId().equals(sessionInfo.getUserId()))
+            throw new NotAuthorizedException(UserError.UNAUTHORIZED);
+
+        ArrayList<BoatResponseDto> boatResponseDtos= new ArrayList<>();
         for(Boat boat : repository.findAll()){
             BoatResponseDto boatDto = new BoatResponseDto();
             boatDto.setName(boat.getName());

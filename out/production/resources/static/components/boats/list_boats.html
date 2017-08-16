@@ -27,19 +27,12 @@
     </table>
 </div>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog" ng-show="success">
 
-    <div class="modal-dialog">
 
-<div class="alert alert-success " ng-show="success">
-    <strong>Changes were saved successfully!</strong>
-</div>
 
-    </div>
-</div>
 
 <div class="row">
+
 <div    class="col-sm-8 col-sm-offset-2" style="background-color:#808080"   class="container" >
     <form  ng-submit="updateBoat()" >
         <div class="form-group">
@@ -63,10 +56,14 @@
             <input type="text" class="form-control" id="owner" placeholder="Enter Owner" name="owner" ng-model="boat.owner" required>
         </div>
 
-        <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">Submit</button>
+        <button type="submit" class="btn btn-default">Submit</button>
 
     </form>
 </div>
+
+    <div class="alert alert-success col-sm-2" ng-show="success">
+        <strong>Changes were saved successfully!</strong>
+    </div>
 
 
 

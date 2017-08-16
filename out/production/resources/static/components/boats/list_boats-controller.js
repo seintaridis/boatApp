@@ -15,7 +15,7 @@ router.controller('listBoatsController',function ($scope, $http, $state,$cookies
 
 
 
-    boatService.getBoats({})
+    boatService.getBoats($cookies.get('id'),$cookies.get('authToken'))
             .then(function (response){
                 console.log("MESA STO RESPONSE");
                 $scope.boats=response.data;
@@ -23,7 +23,6 @@ router.controller('listBoatsController',function ($scope, $http, $state,$cookies
 
                 }, function (response){
 
-                console.log("to lathos m");
                 }
 
             );
@@ -58,7 +57,7 @@ router.controller('listBoatsController',function ($scope, $http, $state,$cookies
                     $scope.message = 'User deleted!';
                     $scope.User = null;
                     $scope.errorMessage = '';
-                    boatService.getBoats({})
+                    boatService.getBoats($cookies.get('id'),$cookies.get('authToken'))
                         .then(function (response) {
                                 console.log("MESA STO RESPONSE");
                                 $scope.boats = response.data;
@@ -84,8 +83,9 @@ router.controller('listBoatsController',function ($scope, $http, $state,$cookies
         $scope.boat.userId=$cookies.get('id');
         boatService.updateBoat($scope.boat,$cookies.get('authToken'))
             .then(function (response){
+                $scope.boat=null;   //after one update you can add new boat
                     console.log("register boat");
-                boatService.getBoats({})
+                boatService.getBoats($cookies.get('id'),$cookies.get('authToken'))
                     .then(function (response){
                             console.log("MESA STO RESPONSE");
                             $scope.boats=response.data;
